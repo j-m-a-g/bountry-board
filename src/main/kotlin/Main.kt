@@ -10,7 +10,7 @@ fun main() {
     println("What level is $HERO_NAME?")
     val playerLevelInput = readln()?.toIntOrNull() ?: 0
 
-    println("$HERO_NAME's level is $playerLevel.")
+    println(message = "$HERO_NAME's level is $playerLevel.")
     readBountyBoard()
     println("Time passes...")
     println("$HERO_NAME returns from her quest.")
@@ -21,7 +21,7 @@ fun main() {
 
 private fun readBountyBoard() {
     val message: String = try {
-        val quest: String? = obtainQuest(playerLevel)
+        val quest: String? = obtainQuest(playerLevel = playerLevel)
         quest?.replace("Nogartse", "xxxxxxxx")
             ?.let { censoredQuest ->
                 """
