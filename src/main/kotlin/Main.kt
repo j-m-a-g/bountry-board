@@ -1,21 +1,20 @@
 package org.example
-
 import java.lang.Exception
 
 const val HERO_NAME: String = "Madrigal"
 var playerLevel: Int = 0
 
 fun main() {
-    println("$HERO_NAME announces her presence to the world.")
-    println("What level is $HERO_NAME?")
+    println(message = "$HERO_NAME announces her presence to the world.")
+    println(message = "What level is $HERO_NAME?")
     readln().toIntOrNull() ?: 0
 
     println(message = "$HERO_NAME's level is $playerLevel.")
     readBountyBoard()
-    println("Time passes...")
-    println("$HERO_NAME returns from her quest.")
+    println(message = "Time passes...")
+    println(message = "$HERO_NAME returns from her quest.")
     playerLevel++
-    println("$playerLevel")
+    println(message = "$playerLevel")
     readBountyBoard()
 }
 
@@ -32,15 +31,14 @@ private fun readBountyBoard() {
     } catch(e: Exception) {
         "$HERO_NAME cannot read what is on the bounty board."
     }
-    println(message)
+    println(message = message)
 }
 
 private fun obtainQuest(
     playerLevel: Int,
     playerClass: String = "paladin",
     hasBeFriendsBarbarians: Boolean = true,
-    hasAngeredBarbarians: Boolean = false
-): String? {
+    hasAngeredBarbarians: Boolean = false): String? {
     if(playerLevel <= 0) {
         throw InvalidPLayerLevelException()
     }
@@ -61,5 +59,5 @@ private fun obtainQuest(
     }
 }
 
-class InvalidPLayerLevelException():
+class InvalidPLayerLevelException:
     IllegalArgumentException("Invalid player level (must be at least 1).")
